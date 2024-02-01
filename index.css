@@ -1,0 +1,75 @@
+/* GLOBAL STYLES */
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.seed-color,
+.selected-mode-list,
+.get-color-scheme-btn {
+    border: 0.5px black solid;
+    cursor: pointer;
+    max-height: 40px
+}
+
+.seed-color:hover,
+.selected-mode-list:hover,
+.get-color-scheme-btn:hover {
+    box-shadow: 1px 1px 5px #282828;
+}
+
+/* HEADER STYLES */
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    /* height: 70px; */
+}
+
+.seed-color {
+    width: 60px;
+    height: 40px;
+}
+
+.selected-mode-list {
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.get-color-scheme-btn {
+    background: #fff;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+/* MAIN STYLES */
+/* the container of divs */
+.colors-container {
+    display: flex;
+    justify-content: center;
+}
+/* the actual color filled divs */
+.color-container {
+    border: none;
+    width: 100%;
+    /* find a better way to do this */
+    align-items: stretch;
+    height: calc(100vh - 70px);
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+/* the hex number at the bottom */
+.hex-color-style {
+    display: inline-block;
+    background: white;
+    width: 100%;
+    padding: 20px 0 10px;
+    margin-bottom: 0;
+    text-align: center;
+}

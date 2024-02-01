@@ -1,0 +1,36 @@
+<html>
+    <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <header>
+            <!-- the color coice -->
+            <input type="color" class="seed-color" id="seed-color">
+            <select class="selected-mode-list" id="selected-mode-list">
+                <!-- different modes -->
+                <option>Monochrome</option>
+                <option>Monochrome-dark</option>
+                <option>Monochrome-light</option>
+                <option>Analogic</option>
+                <option>Complement</option>
+                <option>Analogic-complement</option>
+                <option>Triad</option>
+            </select>
+            <!-- was too long for one line -->
+            <!-- sends the request to the api and in the end renders the divs with the colors -->
+            <button 
+                class="get-color-scheme-btn" 
+                id="get-color-scheme-btn">
+                Get color scheme
+            </button>
+        </header>
+        
+        <main>
+            <div class="colors-container" id="colors-container">
+                <!-- divs containing the colors go here -->
+            </div>
+        </main>
+        
+        <script src="index.js"></script>
+    </body>
+</html>
