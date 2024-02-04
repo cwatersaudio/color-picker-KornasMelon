@@ -1,12 +1,5 @@
-// MAIN TASK:
-// get the hex to copy
 
-// side tasks:
-// remember to add the note from the bottom to here to ask about this managing system in the end
-// make notes everywhere
-// add all the modes needed
-
-// make everything responsive (em rem)
+// i could have refactored the event listener to be made out of diferent functions then everything inside the event listener, but its both a bit confusing to do plus its a pretty small code base, is it abselutly neccesary to refsactor like that.
 
 document.getElementById('get-color-scheme-btn').addEventListener('click', (e) => {  
     let seedColorEl = document.getElementById('seed-color').value
@@ -17,14 +10,14 @@ document.getElementById('get-color-scheme-btn').addEventListener('click', (e) =>
     const selectedModeList = document.getElementById("selected-mode-list")
     const value = selectedModeList.value
     
+    // added {method: "GET"} even though its not neccesary, just for clarity. good idea?
     fetch(`https://www.thecolorapi.com/scheme?hex=${seedColor}&mode=${value.toLowerCase()}`, 
         {method: "GET"})
         .then(res => res.json())
         .then(data => {
-            // console.log(data)
             const colorsArray = []
             let index = 0
-            // pushes color values to colorsArray
+            // pushes color values to colorsArray 
             data.colors.forEach(() => {
                 colorsArray.push(data.colors[index].hex.value)
                 index ++
@@ -58,38 +51,21 @@ function copyToClipboard(text) {
     window.prompt("To copy to clipboard, Press Ctrl+C, Enter", text)
 }
 
+// another test for the copy to clipboard function, still dosnt work, dont know why
 
-function myFunction() {
-  // Get the text field
-  const hexValue = document.getElementById("hex-value");
+// function copyToClipboard() {
+//     // Get the text field
+//     const hexValue = document.getElementById("hex-value")
 
-  // Select the text field
-  hexValue.select();
+//     // Select the text field
+//     // hexValue.select()
 
-   // Copy the text inside the text field
-  navigator.clipboard.writeText(hexValue.value);
-  
-  // Alert the copied text
-  alert("Copied the text: " + hexValue.value);
+//     // Copy the text inside the text field
+//     navigator.clipboard.writeText(hexValue.value)
 
-
-
-
+//     // Alert the copied text
+//     alert("Copied the text: " + hexValue.value)
+// }
 
 
-
-
-
-
-
-
-// MAIN TASK:
-// add the color hex below the color
-
-// side tasks:
-// make notes everywhere
-// add all the modes needed
-// style header
-// make everything responsive (em rem)
-// make everything align centerly, or fit to a compuper
 
