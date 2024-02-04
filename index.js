@@ -13,7 +13,7 @@
 
 // i could have refactored the event listener to be made out of diferent functions then everything inside the event listener, but its both a bit confusing to do plus its a pretty small code base, is it abselutly neccesary to refsactor like that.
 
-document.getElementById('get-color-scheme-btn').addEventListener('click', (e) => {  
+document.getElementById('get-color-scheme-btn').addEventListener('click', (e) => {
     let seedColorEl = document.getElementById('seed-color').value
     let seedColor = seedColorEl.replace('#', '')
 
@@ -21,39 +21,42 @@ document.getElementById('get-color-scheme-btn').addEventListener('click', (e) =>
     // gets selectedModeList(the select element thatb holds the options) then gets the value of the selected option. i tried many methods so it was pretty confusing but it ended upp as the simplest one.
     const selectedModeList = document.getElementById("selected-mode-list")
     const value = selectedModeList.value
-    
+
     // added {method: "GET"} even though its not neccesary, just for clarity. good idea?
-    fetch(`https://www.thecolorapi.com/scheme?hex=${seedColor}&mode=${value.toLowerCase()}`, 
-        {method: "GET"})
+    fetch(`https://www.thecolorapi.com/scheme?hex=${seedColor}&mode=${value.toLowerCase()}`,
+        { method: "GET" })
         .then(res => res.json())
         .then(data => {
-            const colorsArray = []
-            let index = 0
-            // pushes color values to colorsArray 
-            data.colors.forEach(() => {
-                colorsArray.push(data.colors[index].hex.value)
-                index ++
+            // const colorsArray = []
+            // let index = 0
+            // // pushes color values to colorsArray 
+            // data.colors.forEach(() => {
+            //     colorsArray.push(data.colors[index].hex.value)
+            //     index ++
+            // })
+            const colorsArray = data.colors.map((color) => { //using forEach totally works, but I feel like map() is more concise
+                return color.hex.value
             })
-            
+
             let colorsArrayHTML = ''
-            index = 0
-            colorsArray.forEach(() => {
+            // index = 0
+            colorsArray.forEach((colorHex) => { //no need for the index variable as far as I can see since the forEach method automatically iterates through the array
                 colorsArrayHTML += `
                     <div
                         class="color-container" 
-                        style="background-color:${colorsArray[index]}">
+                        style="background-color:${colorHex}">
                         <p 
                             class="hex-color-style" 
                             id="hex-value" 
-                            onclick="copyToClipboard('${colorsArray[index]}')">${colorsArray[index]}
+                            onclick="copyToClipboard('${colorHex}')">${colorHex}
                         </p>
                     </div>
                 `
-                index ++
+                // index++
             })
-            
+
             document.getElementById('colors-container').innerHTML = colorsArrayHTML
-            
+
         })
 })
 
