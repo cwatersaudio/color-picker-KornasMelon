@@ -1,3 +1,15 @@
+// just was interested what you all think about this method of task priortizing(this is a demo from earlier in this project). once i finish the "MAIN TASK" ill choose one from the side tasks, move it to the MAIN TASK and work on it
+
+// MAIN TASK:
+// add the color hex below the color
+
+// side tasks:
+// make notes everywhere
+// add all the modes needed
+// style header
+// make everything responsive (em rem)
+// make everything align centerly, or fit to a compuper
+
 
 // i could have refactored the event listener to be made out of diferent functions then everything inside the event listener, but its both a bit confusing to do plus its a pretty small code base, is it abselutly neccesary to refsactor like that.
 
