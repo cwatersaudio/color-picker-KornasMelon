@@ -62,25 +62,25 @@ document.getElementById('get-color-scheme-btn').addEventListener('click', (e) =>
 
 // copies the text when its clicked
 // tried for a long time to figure out how to gget it to copy automatically but kept running into problems and the
-function copyToClipboard(text) {
-    window.prompt("To copy to clipboard, Press Ctrl+C, Enter", text)
-}
+// function copyToClipboard(text) {
+//     window.prompt("To copy to clipboard, Press Ctrl+C, Enter", text)
+// }
 
 // another test for the copy to clipboard function, still dosnt work, dont know why
 
-// function copyToClipboard() {
-//     // Get the text field
-//     const hexValue = document.getElementById("hex-value")
+function copyToClipboard(hexValue) {
+    // Get the text field
+    // const hexValue = document.getElementById("hex-value")
 
-//     // Select the text field
-//     // hexValue.select()
+    // Select the text field
+    // hexValue.select()
 
-//     // Copy the text inside the text field
-//     navigator.clipboard.writeText(hexValue.value)
+    // Copy the text inside the text field
+    navigator.clipboard.writeText(hexValue)
 
-//     // Alert the copied text
-//     alert("Copied the text: " + hexValue.value)
-// }
+    // Alert the copied text
+    console.log("Copied the text: " + hexValue)
+}
 
 
 
